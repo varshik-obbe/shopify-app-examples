@@ -3,6 +3,7 @@ import { join } from "path";
 import { readFileSync } from "fs";
 import express from "express";
 import serveStatic from "serve-static";
+import dotenv from 'dotenv';
 
 import shopify from "./shopify.js";
 import GDPRWebhookHandlers from "./gdpr.js";
@@ -10,6 +11,8 @@ import GDPRWebhookHandlers from "./gdpr.js";
 import applyQrCodeApiEndpoints from "./middleware/qr-code-api.js";
 import applyQrCodePublicEndpoints from "./middleware/qr-code-public.js";
 
+
+dotenv.config();
 const PORT = parseInt(process.env.BACKEND_PORT || process.env.PORT, 10);
 
 const STATIC_PATH =
